@@ -1,13 +1,16 @@
 <div>
-  <button type="button" class="btn btn-success btn-lg px-4 gap-3" (click)="createWallet()">
-    {{ userWallet ? "Get other" : "Create" }} Wallet
+  <button type="button" class="btn btn-success btn-lg px-4 gap-3" (click)="isConnected()">
+    {{walletAddress ? walletAddress : "Connect Wallet"}}
+  </button>
+  <button type="button" class="btn btn-danger btn-lg px-4 gap-3" (click)="changeWallet()">
+    Change Wallet
   </button>
 
   <div class="card my-4">
     <div class="card-body">
       <h5 class="card-title">User Wallet</h5>
       <h6 class="card-subtitle mb-2 text-muted">
-        {{ userWallet?.address }}
+        {{ walletSigner?._address }}
       </h6>
       <p class="card-text">Balance: {{ userBalance }} ETH </p>
       <p class="card-text">Token Balance: {{ userTokenBalance }} VOTE</p>
