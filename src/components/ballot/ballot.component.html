@@ -1,0 +1,29 @@
+<div class=" card my-4" *ngIf="ballotContractAddress">
+  <div class="card-body">
+    <h5 class="card-title">Ballot</h5>
+    <h6 class="card-subtitle mb-2 text-muted">
+      {{ ballotContractAddress }}
+    </h6>
+    <p class="card-text" *ngIf="votingPower"> Remaining voting power: {{ votingPower }} VOTE</p>
+    <p class="card-text" *ngIf="winnerName">Actual Winner: {{ winnerName }}</p>
+    <p class="card-text" *ngIf="blockId">Block Snapshot: {{ blockId }}</p>
+    <h5 class="card-subtitle mb-2">Proposals</h5>
+    <div *ngFor="let proposal of proposals">
+      <p class="card-text">- {{proposal.name}}: {{proposal.voteCount}} VOTES</p>
+    </div>
+    <br>
+
+    <p> Vote </p>
+    <input #voteInput class="input" placeholder="#" type="number" min="1" max="3">
+    <input #amountInput class="input" placeholder="amount" type="number" min="1" max="10">
+    <div>
+      <button *ngIf="amountInput.value && voteInput.value" type="button" class="btn btn-primary btn-md btn-block my-4"
+        (click)="vote(voteInput.value, amountInput.value)">Vote</button>
+    </div>
+    <br>
+
+    <button type=" button" class="btn btn-primary btn-lg px-4 gap-3" (click)="sync()">
+      Sync
+    </button>
+  </div>
+</div>

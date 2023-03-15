@@ -10,14 +10,13 @@ import tokenJson from "../assets/VotingERC20Token.json"
 })
 export class AppComponent {
   blockNumber: number | string | undefined = 0;
-  userWallet: Wallet | undefined;
   provider: ethers.providers.Provider | undefined
   tokenContractAddress: string | undefined
   tokenSupply: string | undefined
   tokenContract: Contract | undefined;
 
   constructor(private http: HttpClient) {
-    this.provider = ethers.providers.getDefaultProvider('goerli')
+    this.provider = ethers.providers.getDefaultProvider('sepolia')
   }
 
   syncBlock() {

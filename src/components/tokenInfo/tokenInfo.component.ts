@@ -22,7 +22,7 @@ export class TokenInfoComponent {
 
 
   constructor(private http: HttpClient) {
-    this.provider = ethers.providers.getDefaultProvider('goerli')
+    this.provider = ethers.providers.getDefaultProvider('sepolia')
     this.http.get<{ token: string }>(TOKEN_CONTRACT_URL).subscribe((answer) => {
       this.tokenContractAddress = answer.token;
     })
